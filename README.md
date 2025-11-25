@@ -40,7 +40,11 @@ pip install boto3 awswrangler pandas openpyxl
 
 ## Instalación
 
-1. **Clonar/descargar el proyecto**
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/EdVeralli/Metricas_Boti_Conversaciones_Usuarios
+   cd Metricas_Boti_Conversaciones_Usuarios
+   ```
 
 2. **Instalar dependencias:**
    ```bash
@@ -134,7 +138,6 @@ count(distinct SUBSTR(session_id, 1, 20)) as Cant_Usuario,
 count(distinct(session_id)) as Cant_Sesiones 
 FROM "caba-piba-consume-zone-db"."boti_session_metrics_2" 
 WHERE CAST(session_creation_time AS DATE) BETWEEN date '[fecha_inicio]' and date '[fecha_fin]'
-AND regexp_like(message, '^Template')
 ```
 
 **Parámetros dinámicos:**
@@ -206,7 +209,7 @@ FECHA_INICIO=2025-10-01  # ✅ Correcto
 ## Estructura del Proyecto
 
 ```
-Usuarios_Conversaciones/
+Metricas_Boti_Conversaciones_Usuarios/
 │
 ├── Usuarios_Conversaciones.py   # Script principal
 ├── config_fechas.txt             # Configuración de fechas
@@ -293,6 +296,31 @@ openpyxl>=3.0.0       # Generación de Excel
 **Ejemplo:**
 - Un usuario puede tener múltiples conversaciones
 - Si hay 100 usuarios y 250 conversaciones, significa que cada usuario tuvo en promedio 2.5 conversaciones
+
+## Contribuciones
+
+Este es un proyecto interno del GCBA. Para contribuir:
+
+1. Fork el proyecto
+2. Crear una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abrir un Pull Request
+
+## Autor
+
+**Eduardo Veralli**
+- GitHub: [@EdVeralli](https://github.com/EdVeralli)
+
+## Licencia
+
+Proyecto del Gobierno de la Ciudad de Buenos Aires (GCBA).
+
+## Soporte
+
+Para problemas o consultas:
+- [Abrir un issue en GitHub](https://github.com/EdVeralli/Metricas_Boti_Conversaciones_Usuarios/issues)
+- Contactar al equipo de Data Analytics GCBA
 
 ---
 
